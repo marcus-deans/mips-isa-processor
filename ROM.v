@@ -4,6 +4,7 @@ module ROM #(parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096, MEMFIL
     input wire [ADDRESS_WIDTH-1:0] addr,
     output reg [DATA_WIDTH-1:0]    dataOut = 0);
     
+    
     reg[DATA_WIDTH-1:0] MemoryArray[0:DEPTH-1];
     
     initial begin
@@ -15,4 +16,5 @@ module ROM #(parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096, MEMFIL
     always @(posedge clk) begin
         dataOut <= MemoryArray[addr];
     end
+
 endmodule

@@ -7,6 +7,7 @@
 ./latches/dffe_ref_alt.v
 ./latches/dx_latch.v
 ./latches/mw_latch.v
+./alu.v
 ./multdiv/mult.v
 ./multdiv/aq_reg.v
 ./multdiv/ctrl_reg.v
@@ -18,6 +19,7 @@
 ./multdiv/counter.v
 ./Wrapper_tb.v
 ./regfile/tri_buffer.v
+./regfile/regfile_tb.v
 ./regfile/tri_buffer_5.v
 ./regfile/register.v
 ./regfile/dffe_ref.v
@@ -28,26 +30,59 @@
 ./RAM.v
 ./processor.v
 ./bypass.v
+./Provided Behavioral Components/multdiv.v
+./Provided Behavioral Components/multiplier.v
+./Provided Behavioral Components/divider.v
+./Provided Behavioral Components/dffe_ref.v
+./Provided Behavioral Components/regfile.v
 ./ROM.v
+./alu/bit4_mux.v
 ./alu/cla_full_adder.v
 ./alu/left_shifter_1.v
+./alu/bit2_right_shifter.v
+./alu/bit24_mux.v
 ./alu/right_shifter_2.v
+./alu/bit1_left_shifter.v
 ./alu/right_shifter_8.v
+./alu/bit2_mux.v
+./alu/bit8_left_shifter.v
+./alu/bit32_mux_4shift.v
 ./alu/right_barrel_shifter.v
+./alu/bit32_mux_8shift.v
 ./alu/alu.v
 ./alu/left_shifter_2.v
 ./alu/right_shifter_16.v
 ./alu/left_shifter_8.v
 ./alu/mux_4.v
 ./alu/right_shifter_1.v
+./alu/bit2_left_shifter.v
+./alu/bit4_right_shifter.v
 ./alu/bitwise_or.v
+./alu/bit4_left_shifter.v
+./alu/bit32_and.v
 ./alu/one_bit_adder.v
+./alu/bit16_right_shifter.v
 ./alu/right_shifter_4.v
+./alu/cla_adder.v
+./alu/bit32_cla.v
+./alu/bit16_left_shifter.v
+./alu/bit1_right_shifter.v
 ./alu/cla_block.v
+./alu/bit16_mux.v
 ./alu/bitwise_and.v
+./alu/bit32_mux.v
+./alu/bit30_mux.v
+./alu/bit8_cla.v
 ./alu/left_shifter_4.v
 ./alu/bitwise_not.v
+./alu/bit32_or.v
 ./alu/mux_8.v
 ./alu/mux_2.v
+./alu/bit2_double_mux.v
 ./alu/left_barrel_shifter.v
+./alu/bit8_right_shifter.v
+./alu/bit31_mux.v
+./alu/bit28_mux.v
+./alu/bit32_not.v
+./alu/bit8_mux.v
 ./alu/left_shifter_16.v

@@ -6,6 +6,7 @@ module RAM #( parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096) (
     input wire [DATA_WIDTH-1:0]    dataIn,
     output reg [DATA_WIDTH-1:0]    dataOut = 0);
     
+    
     reg[DATA_WIDTH-1:0] MemoryArray[0:DEPTH-1];
     
     integer i;
@@ -25,4 +26,5 @@ module RAM #( parameter DATA_WIDTH = 32, ADDRESS_WIDTH = 12, DEPTH = 4096) (
             dataOut <= MemoryArray[addr];
         end
     end
+
 endmodule
