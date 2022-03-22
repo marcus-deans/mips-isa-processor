@@ -18,6 +18,7 @@
 ./multdiv/counter.v
 ./Wrapper_tb.v
 ./regfile/regfile_tb.v
+./regfile/tri_buffer_5.v
 ./regfile/reg32.v
 ./regfile/dffe_ref.v
 ./regfile/regfile.v
@@ -70,6 +71,7 @@
 ./alu/bit32_or.v
 ./alu/one_bit_add.v
 ./alu/mux_8.v
+./alu/mux_2.v
 ./alu/bit2_double_mux.v
 ./alu/bit8_right_shifter.v
 ./alu/bit31_mux.v
