@@ -15,10 +15,13 @@ module stall(fd_ir_out, dx_ir_out, xm_ir_out, multdiv_is_running, multdiv_result
     assign fd_rt = fd_ir_out[16:12];
     assign alu_opcode = dx_ir_out[6:2];
 
-    // Identify whether operation is load word,save word, or type R operation
-    wire dx_is_lw_op, fd_is_sw_op, dx_is_r_type_op;
+    // Identify whether operation is load word or save word
+    wire dx_is_lw_op, fd_is_sw_op;
     assign dx_is_lw_op = ~dx_opcode[4] & dx_opcode[3] & ~dx_opcode[2] & ~dx_opcode[1] & ~dx_opcode[0];
     assign fd_is_sw_op = ~fd_opcode[4] & ~fd_opcode[3] & fd_opcode[2] & fd_opcode[1] & fd_opcode[0];
+
+    // Identify whether operation is type R
+    wire dx_is_r_op;
     assign dx_is_r_type_op = ~dx_opcode[4] & ~dx_opcode[3] & ~dx_opcode[2] & ~dx_opcode[1] & ~dx_opcode[0];
 
     // If R type operation, identify whether instruction is mult or div operation
