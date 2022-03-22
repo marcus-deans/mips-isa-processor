@@ -1,4 +1,4 @@
-module tri_state_buffer(in, enable, out);
+module tri_buffer(in, enable, out);
     input [31:0] in;
     input enable;
 

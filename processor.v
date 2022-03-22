@@ -140,14 +140,14 @@ module processor(
 
     // tri buffers for assigning o input of xm latch
     wire [31:0] xm_o_in;
-    tri_state_buffer tri_alu(alu_out, !overflow && !dx_is_jal_op && !dx_is_setx_op, xm_o_in);
-    tri_state_buffer tri_ovf(rstatus, overflow && !dx_is_jal_op && !dx_is_setx_op, xm_o_in);
-    tri_state_buffer tri_jal(dx_pc_out, !overflow && dx_is_jal_op && !dx_is_setx_op, xm_o_in);
+    tri_buffer tri_alu(alu_out, !overflow && !dx_is_jal_op && !dx_is_setx_op, xm_o_in);
+    tri_buffer tri_ovf(rstatus, overflow && !dx_is_jal_op && !dx_is_setx_op, xm_o_in);
+    tri_buffer tri_jal(dx_pc_out, !overflow && dx_is_jal_op && !dx_is_setx_op, xm_o_in);
 
     wire [31:0] t;
     assign t[31:27] = 5'b0;
     assign t[26:0] = dx_ir_out[26:0];
-    tri_state_buffer tri_setx(t, !overflow && !dx_is_jal_op && dx_is_setx_op, xm_o_in);
+    tri_buffer tri_setx(t, !overflow && !dx_is_jal_op && dx_is_setx_op, xm_o_in);
 
     // XM latch
     wire [31:0] xm_b_out, xm_ir_out;
