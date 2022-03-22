@@ -74,7 +74,7 @@ module bit32_cla(S,A,B,Cout, cin);
   and a5889(p3p2g1,P3,P2,G1);
   and a672(p3p2p1g0,P3,P2,P1,G0);
   and a8983(p3p2p1p0c0,P3,P2,P1,P0,cin);
-  or o29090(cout,G3,p3g2,p3p2g1,p3p2p1g0,p3p2p1p0c0);
+  or o29090(Cout,G3,p3g2,p3p2g1,p3p2p1g0,p3p2p1p0c0);
 
 
 
