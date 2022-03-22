@@ -20,7 +20,7 @@ module stall(fd_ir_out, dx_ir_out, xm_ir_out, multdiv_is_running, multdiv_result
     assign fd_rt = fd_ir_out[16:12];
 
     // Identify whether operation is type R
-    wire dx_is_r_op;
+    wire dx_is_r_type_op;
     // Identify ALU opcode
     wire [4:0] alu_opcode;
     assign dx_is_r_type_op = ~dx_opcode[4] & ~dx_opcode[3] & ~dx_opcode[2] & ~dx_opcode[1] & ~dx_opcode[0];
