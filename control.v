@@ -1,8 +1,8 @@
 module control(pc_next_def, dx_pc_out, sx_imm, rd, dx_ir_out, alu_neq_out, alu_lt_out, pc_next, branch_or_jump_taken);
     input [31:0] pc_next_def, dx_pc_out, sx_imm, rd, dx_ir_out;
     input alu_neq_out, alu_lt_out;
-    output [31:0] pc_next;
     output branch_or_jump_taken;
+    output [31:0] pc_next;
 
     wire [31:0] pc_branch;
     cla_full_adder pc_jump(dx_pc_out, sx_imm, 1'b0, dx_pc_out | sx_imm, dx_pc_out & sx_imm, pc_branch);
