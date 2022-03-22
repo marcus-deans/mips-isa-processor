@@ -8,21 +8,23 @@ module stall(fd_ir_out, dx_ir_out, xm_ir_out, multdiv_is_running, multdiv_result
     assign fd_opcode = fd_ir_out[31:27];
     assign dx_opcode = dx_ir_out[31:27];
 
-    // Distinguish input values and opcodes as subsets of input
-    wire [4:0] fd_rs, fd_rt, dx_rd, alu_opcode;
-    assign dx_rd = dx_ir_out[26:22];
-    assign fd_rs = fd_ir_out[21:17];
-    assign fd_rt = fd_ir_out[16:12];
-    assign alu_opcode = dx_ir_out[6:2];
-
     // Identify whether operation is load word or save word
     wire dx_is_lw_op, fd_is_sw_op;
     assign dx_is_lw_op = ~dx_opcode[4] & dx_opcode[3] & ~dx_opcode[2] & ~dx_opcode[1] & ~dx_opcode[0];
     assign fd_is_sw_op = ~fd_opcode[4] & ~fd_opcode[3] & fd_opcode[2] & fd_opcode[1] & fd_opcode[0];
 
+    // Distinguish input values and opcodes as subsets of input
+    wire [4:0] fd_rs, fd_rt, dx_rd;
+    assign dx_rd = dx_ir_out[26:22];
+    assign fd_rs = fd_ir_out[21:17];
+    assign fd_rt = fd_ir_out[16:12];
+
     // Identify whether operation is type R
     wire dx_is_r_op;
+    // Identify ALU opcode
+    wire [4:0] alu_opcode;
     assign dx_is_r_type_op = ~dx_opcode[4] & ~dx_opcode[3] & ~dx_opcode[2] & ~dx_opcode[1] & ~dx_opcode[0];
+    assign alu_opcode = dx_ir_out[6:2];
 
     // If R type operation, identify whether instruction is mult or div operation
     wire dx_is_mult_op, dx_is_div_op;
