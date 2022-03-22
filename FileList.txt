@@ -7,7 +7,6 @@
 ./latches/dffe_ref_alt.v
 ./latches/dx_latch.v
 ./latches/mw_latch.v
-./alu.v
 ./multdiv/mult.v
 ./multdiv/aq_reg.v
 ./multdiv/ctrl_reg.v
@@ -19,23 +18,16 @@
 ./multdiv/counter.v
 ./Wrapper_tb.v
 ./regfile/tri_buffer.v
-./regfile/regfile_tb.v
 ./regfile/tri_buffer_5.v
-./regfile/reg32.v
+./regfile/register.v
 ./regfile/dffe_ref.v
 ./regfile/regfile.v
-./regfile/decoder32.v
+./regfile/decoder_32.v
 ./Wrapper.v
 ./control.v
 ./RAM.v
 ./processor.v
 ./bypass.v
-./Provided Behavioral Components/alu.v
-./Provided Behavioral Components/multdiv.v
-./Provided Behavioral Components/multiplier.v
-./Provided Behavioral Components/divider.v
-./Provided Behavioral Components/dffe_ref.v
-./Provided Behavioral Components/regfile.v
 ./ROM.v
 ./alu/cla_full_adder.v
 ./alu/left_shifter_1.v
