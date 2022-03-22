@@ -181,10 +181,10 @@ module processor(
     assign mw_is_setx_op = mw_opcode[4] & ~mw_opcode[3] & mw_opcode[2] & ~mw_opcode[1] & mw_opcode[0];
 
     // tri buffers for ctrl_writeReg
-    tri_state_buffer_5 tri_normal_reg(mw_ir_out[26:22], !(mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
-    tri_state_buffer_5 tri_status_reg(5'd30, (mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
-    tri_state_buffer_5 tri_jal_reg(5'd31, !(mw_ovf_out || mw_is_setx_op) && mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
-    tri_state_buffer_5 tri_multdiv_reg(multdiv_ir[26:22], !(mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && (multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
+    tri_buffer_5 tri_normal_reg(mw_ir_out[26:22], !(mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
+    tri_buffer_5 tri_status_reg(5'd30, (mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
+    tri_buffer_5 tri_jal_reg(5'd31, !(mw_ovf_out || mw_is_setx_op) && mw_is_jal_op && !(multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
+    tri_buffer_5 tri_multdiv_reg(multdiv_ir[26:22], !(mw_ovf_out || mw_is_setx_op) && !mw_is_jal_op && (multdiv_result_ready && !multdiv_exception), ctrl_writeReg);
 
     assign data_writeReg = mw_is_lw_op ? mw_d_out : ((multdiv_result_ready && !multdiv_exception) ? multdiv_result : mw_o_out);
     assign ctrl_writeEnable = mw_is_r_type_op | mw_is_addi_op | mw_is_lw_op | mw_is_jal_op | mw_is_setx_op | (multdiv_result_ready && !multdiv_exception);
