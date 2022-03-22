@@ -14,9 +14,13 @@
 ./multdiv/counter_reg.v
 ./multdiv/product_reg.v
 ./multdiv/multdiv.v
+./multdiv/not32.v
 ./multdiv/div.v
+./multdiv/or32.v
 ./multdiv/ctrl_latch.v
 ./multdiv/counter.v
+./multdiv/eightbitlookahead.v
+./multdiv/and32.v
 ./Wrapper_tb.v
 ./regfile/tri_buffer.v
 ./regfile/regfile_tb.v
