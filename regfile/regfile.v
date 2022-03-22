@@ -5,57 +5,74 @@ module regfile (
 	data_readRegA, data_readRegB
 );
 
+	// input clock, ctrl_writeEnable, ctrl_reset;
+	// input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
+	// input [31:0] data_writeReg;
+
+	// output [31:0] data_readRegA, data_readRegB;
+
+	// // add your code here
+	
+	// // use decoder to determine which register should be written to
+	// wire [31:0] decoded;
+	// decoder32 decoder(ctrl_writeReg, ctrl_writeEnable, decoded);
+
+	// // for writes, each output of the decoder must be checked to see whether writing is actually enabled
+	// wire [31:0] writeEnable;
+	// and writeEnable0_gate(writeEnable[0], decoded[0], ctrl_writeEnable);
+	// and writeEnable1_gate(writeEnable[1], decoded[1], ctrl_writeEnable);
+	// and writeEnable2_gate(writeEnable[2], decoded[2], ctrl_writeEnable);
+	// and writeEnable3_gate(writeEnable[3], decoded[3], ctrl_writeEnable);
+	// and writeEnable4_gate(writeEnable[4], decoded[4], ctrl_writeEnable);
+	// and writeEnable5_gate(writeEnable[5], decoded[5], ctrl_writeEnable);
+	// and writeEnable6_gate(writeEnable[6], decoded[6], ctrl_writeEnable);
+	// and writeEnable7_gate(writeEnable[7], decoded[7], ctrl_writeEnable);
+	// and writeEnable8_gate(writeEnable[8], decoded[8], ctrl_writeEnable);
+	// and writeEnable9_gate(writeEnable[9], decoded[9], ctrl_writeEnable);
+	// and writeEnable10_gate(writeEnable[10], decoded[10], ctrl_writeEnable);
+	// and writeEnable11_gate(writeEnable[11], decoded[11], ctrl_writeEnable);
+	// and writeEnable12_gate(writeEnable[12], decoded[12], ctrl_writeEnable);
+	// and writeEnable13_gate(writeEnable[13], decoded[13], ctrl_writeEnable);
+	// and writeEnable14_gate(writeEnable[14], decoded[14], ctrl_writeEnable);
+	// and writeEnable15_gate(writeEnable[15], decoded[15], ctrl_writeEnable);
+	// and writeEnable16_gate(writeEnable[16], decoded[16], ctrl_writeEnable);
+	// and writeEnable17_gate(writeEnable[17], decoded[17], ctrl_writeEnable);
+	// and writeEnable18_gate(writeEnable[18], decoded[18], ctrl_writeEnable);
+	// and writeEnable19_gate(writeEnable[19], decoded[19], ctrl_writeEnable);
+	// and writeEnable20_gate(writeEnable[20], decoded[20], ctrl_writeEnable);
+	// and writeEnable21_gate(writeEnable[21], decoded[21], ctrl_writeEnable);
+	// and writeEnable22_gate(writeEnable[22], decoded[22], ctrl_writeEnable);
+	// and writeEnable23_gate(writeEnable[23], decoded[23], ctrl_writeEnable);
+	// and writeEnable24_gate(writeEnable[24], decoded[24], ctrl_writeEnable);
+	// and writeEnable25_gate(writeEnable[25], decoded[25], ctrl_writeEnable);
+	// and writeEnable26_gate(writeEnable[26], decoded[26], ctrl_writeEnable);
+	// and writeEnable27_gate(writeEnable[27], decoded[27], ctrl_writeEnable);
+	// and writeEnable28_gate(writeEnable[28], decoded[28], ctrl_writeEnable);
+	// and writeEnable29_gate(writeEnable[29], decoded[29], ctrl_writeEnable);
+	// and writeEnable30_gate(writeEnable[30], decoded[30], ctrl_writeEnable);
+	// and writeEnable31_gate(writeEnable[31], decoded[31], ctrl_writeEnable);
+
+	// // create linking wires for the 32 registers
+	// wire [31:0] out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, 
+	// 			out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, 
+	// 			out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31;
+
+	
 	input clock, ctrl_writeEnable, ctrl_reset;
 	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
 	input [31:0] data_writeReg;
 
 	output [31:0] data_readRegA, data_readRegB;
 
-	// add your code here
-	
-	// use decoder to determine which register should be written to
-	wire [31:0] decoded;
-	decoder32 decoder(ctrl_writeReg, ctrl_writeEnable, decoded);
-
-	// for writes, each output of the decoder must be checked to see whether writing is actually enabled
+	// decoder
 	wire [31:0] writeEnable;
-	and writeEnable0_gate(writeEnable[0], decoded[0], ctrl_writeEnable);
-	and writeEnable1_gate(writeEnable[1], decoded[1], ctrl_writeEnable);
-	and writeEnable2_gate(writeEnable[2], decoded[2], ctrl_writeEnable);
-	and writeEnable3_gate(writeEnable[3], decoded[3], ctrl_writeEnable);
-	and writeEnable4_gate(writeEnable[4], decoded[4], ctrl_writeEnable);
-	and writeEnable5_gate(writeEnable[5], decoded[5], ctrl_writeEnable);
-	and writeEnable6_gate(writeEnable[6], decoded[6], ctrl_writeEnable);
-	and writeEnable7_gate(writeEnable[7], decoded[7], ctrl_writeEnable);
-	and writeEnable8_gate(writeEnable[8], decoded[8], ctrl_writeEnable);
-	and writeEnable9_gate(writeEnable[9], decoded[9], ctrl_writeEnable);
-	and writeEnable10_gate(writeEnable[10], decoded[10], ctrl_writeEnable);
-	and writeEnable11_gate(writeEnable[11], decoded[11], ctrl_writeEnable);
-	and writeEnable12_gate(writeEnable[12], decoded[12], ctrl_writeEnable);
-	and writeEnable13_gate(writeEnable[13], decoded[13], ctrl_writeEnable);
-	and writeEnable14_gate(writeEnable[14], decoded[14], ctrl_writeEnable);
-	and writeEnable15_gate(writeEnable[15], decoded[15], ctrl_writeEnable);
-	and writeEnable16_gate(writeEnable[16], decoded[16], ctrl_writeEnable);
-	and writeEnable17_gate(writeEnable[17], decoded[17], ctrl_writeEnable);
-	and writeEnable18_gate(writeEnable[18], decoded[18], ctrl_writeEnable);
-	and writeEnable19_gate(writeEnable[19], decoded[19], ctrl_writeEnable);
-	and writeEnable20_gate(writeEnable[20], decoded[20], ctrl_writeEnable);
-	and writeEnable21_gate(writeEnable[21], decoded[21], ctrl_writeEnable);
-	and writeEnable22_gate(writeEnable[22], decoded[22], ctrl_writeEnable);
-	and writeEnable23_gate(writeEnable[23], decoded[23], ctrl_writeEnable);
-	and writeEnable24_gate(writeEnable[24], decoded[24], ctrl_writeEnable);
-	and writeEnable25_gate(writeEnable[25], decoded[25], ctrl_writeEnable);
-	and writeEnable26_gate(writeEnable[26], decoded[26], ctrl_writeEnable);
-	and writeEnable27_gate(writeEnable[27], decoded[27], ctrl_writeEnable);
-	and writeEnable28_gate(writeEnable[28], decoded[28], ctrl_writeEnable);
-	and writeEnable29_gate(writeEnable[29], decoded[29], ctrl_writeEnable);
-	and writeEnable30_gate(writeEnable[30], decoded[30], ctrl_writeEnable);
-	and writeEnable31_gate(writeEnable[31], decoded[31], ctrl_writeEnable);
+	decoder_32 decoder(ctrl_writeReg, ctrl_writeEnable, writeEnable);
 
-	// create linking wires for the 32 registers
-	wire [31:0] out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, 
-				out11, out12, out13, out14, out15, out16, out17, out18, out19, out20, 
-				out21, out22, out23, out24, out25, out26, out27, out28, out29, out30, out31;
+	// create 32 registers, register 0 always has an output of 0 (disable writing)
+	wire [31:0] out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, 
+		out12, out13, out14, out15, out16, out17, out18, out19, out20, out21, out22, 
+		out23, out24, out25, out26, out27, out28, out29, out30, out31;
+
 
 	// create register 0 -> always has output of 0, irrespective of write
 	reg32 reg0(data_writeReg, clock, 1'b0, 1'b1, ctrl_reset, out0); 
