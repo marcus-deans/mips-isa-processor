@@ -7,6 +7,7 @@
 ./latches/dffe_ref_alt.v
 ./latches/dx_latch.v
 ./latches/mw_latch.v
+./alu.v
 ./multdiv/mult.v
 ./multdiv/aq_reg.v
 ./multdiv/ctrl_reg.v
