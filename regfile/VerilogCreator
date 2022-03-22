@@ -1,0 +1,39 @@
+from venv import create
+
+
+def createRegisters():
+    for x in range(1, 32):
+        print(f"reg32 reg{x}(data_writeReg, clock, writeEnable[{x}], 1'b1, ctrl_reset, out{x});")
+
+def createTriStateBuffers():
+    for x in range(0, 32):
+        print(f"tri_state_buffer tri_A{x}(out{x}, readRegA[{x}], data_readRegA);")
+    for x in range(0, 32):
+        print(f"tri_state_buffer tri_B{x}(out{x}, readRegB[{x}], data_readRegB);")
+
+def createDecoderEnables():
+    for x in range(0, 32):
+        print(f"and out{x}_gate(out[{x}], validated[{x}], enable);")
+
+def newDecoderEnables():
+    for x in range(0, 32):
+        print(f"assign out[{x}] = enable ? validated[{x}] : 1'b0;")
+
+def outsideDecoderEnables():
+    for x in range(0, 32):
+        print(f"assign writeEnable[{x}] = ctrl_writeEnable ? decoded[{x}] : 1'b0;")
+
+def alternateOutsideDecoderEnables():
+    for x in range(0, 32):
+        print(f"and writeEnable{x}_gate(writeEnable[{x}], decoded[{x}], ctrl_writeEnable);")
+
+def createTruthTable():
+    for x in range(0,32):
+        print(f"and decode{x}_gate(out[{x}], wr[4], wr[3], wr[2], wr[1], wr[0]);")
+# createRegisters()
+# createTriStateBuffers()
+# createDecoderEnables()
+# newDecoderEnables()
+# outsideDecoderEnables()
+# alternateOutsideDecoderEnables()
+createTruthTable()
