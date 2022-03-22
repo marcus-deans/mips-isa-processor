@@ -1,0 +1,12 @@
+---
+:id: 112895501
+:submitters:
+- :name: Marcus Deans
+  :email: marcus.deans@duke.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-02-22 07:44:58.110426000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-02-21 23:44:58.110426000 Z
+:status: processed
+:score: 100.0
